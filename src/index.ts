@@ -56,7 +56,7 @@ app.get('/', (c) => {
                 </div>
                 <div class="mb-3">
                     <h1 class="text-xl font-bold text-phala">PHALA NETWORK</h1>
-                    <h2 class="text-base font-semibold text-gray-700">The TEE Docker SDK Cheat Sheet</h2>
+                    <h2 class="text-base font-semibold text-gray-700">The <strong>Web2 In Web3 Out</strong> SDK Cheat Sheet</h2>
                 </div>
             </div>
 
@@ -65,10 +65,10 @@ app.get('/', (c) => {
                     <section>
                         <h3 class="text-sm font-semibold mb-1">WTF is TEE?</h3>
                         <p class="text-gray-600 text-xs">
-                            TEE (Trusted Execution Environment) is a cool CPU feature that makes your code <strong>Verifiable</strong> and <strong>Privacy-Preserving</strong> by locking it in a black box. Trusted hardware ensures even the OS or hardware can't mess with your code.
+                            TEE (Trusted Execution Environment) is a cool CPU feature that makes your code <strong>Verifiable</strong> and <strong>Privacy-Preserving</strong> by locking it in a black box. Trusted hardware ensures even the OS or hardware can't mess with your code. Now, when you put a <strong>Web2 app in</strong> a TEE, you get <strong>Web3 out</strong>! :)
                         </p>
                         <p class="text-gray-600 text-xs">
-                            Meet <strong>dstack SDK</strong>, the TEE vercel-like backend for running confidential docker containers to deploy kickass dApps.
+                            Meet the <strong>TEE Docker SDK</strong>, the TEE vercel-like backend for running confidential docker containers to deploy kickass dApps.
                         </p>
                     </section>
 
@@ -89,19 +89,20 @@ docker run --rm -p 8090:8090 phalanetwork/tappd-simulator  # Run the simulator</
                     <section>
                         <h3 class="text-sm font-semibold mb-1">Build and Deploy Your TEE dApp</h3>
                         <p class="font-medium text-xs">Build The Docker Image</p>
-                        <pre><code class="language-bash">docker build -t nextjs-viem-dstack-template</code></pre>
+                        <pre><code class="language-bash">docker build -t nextjs-viem-dstack-template:latest .</code></pre>
                         <p class="font-medium mt-1 text-xs">Run Your Docker Image</p>
-                        <pre><code class="language-bash">docker run --rm -p 3000:3000 &lt;docker-hash&gt;</code></pre>
+                        <pre><code class="language-bash">docker run --rm -p 3000:3000 nextjs-viem-dstack-template:latest</code></pre>
                     </section>
 
                     <section>
-                        <h3 class="text-sm font-semibold mb-1">Are You Looking For Python?!</h3>
-                        <p class="font-medium text-xs">What No More! Get Started in Minutes</p>
+                        <h3 class="text-sm font-semibold mb-1">Are You Looking For <strong>Python</strong>?!</h3>
+                        <p class="font-medium text-xs">Wait No More! Get Started in Minutes</p>
                         <pre><code class="language-bash">git clone https://github.com/Phala-Network/python-dstack-template.git</code></pre>
-                        <p class="font-medium mt-1 text-xs">Build The Docker Image</p>
-                        <pre><code class="language-bash">docker build -t python-dstack-template</code></pre>
-                        <p class="font-medium mt-1 text-xs">Run Your Docker Image</p>
-                        <pre><code class="language-bash">docker run --rm -p 3000:3000 &lt;docker-hash&gt;</code></pre>
+                    </section>
+                    <section>
+                        <h3 class="text-sm font-semibold mb-1">How is it Verifiable?</h3>
+                        <p class="text-gray-600 text-xs">The verifiable hardware produces Remote Attestation, which proves the exact code is running in a genuine TEE with integrity and privacy guarantees.</p>
+                        <p class="text-gray-600 text-xs">Get the RA quote from your app and verify it on the TEE Attestation Explorer at <a href="https://dstack-sim-explorer.vercel.app" class="text-blue-500 hover:underline">https://dstack-sim-explorer.vercel.app</a></p>
                     </section>
 
                     <section>
@@ -120,14 +121,17 @@ docker run --rm -p 8090:8090 phalanetwork/tappd-simulator  # Run the simulator</
 
                 <div class="space-y-3">
                     <section>
-                        <h3 class="text-sm font-semibold mb-1">Key Features With The TEE dstack SDK</h3>
+                        <h3 class="text-sm font-semibold mb-1">Key Features With The TEE Docker SDK</h3>
                         <div class="space-y-1">
-                            <p class="font-medium text-xs">Every program comes with a ready-to-use secret key</p>
+                            <p class="font-medium text-xs">Every program comes with a ready-to-use secret key in <strong>JS</strong> and <strong>Python</strong></p>
                             <pre><code class="language-javascript">const client = new TappdClient(endpoint)
-const randomDeriveKey = await client.deriveKey("pathString", "string");</code></pre>
-                            <p class="font-medium text-xs">Generate <a href="https://viem.sh" class="text-blue-500 hover:underline">Remote Attestations</a> at will</p>
-                            <pre><code class="language-javascript">const getRemoteAttestation = await client.tdxQuote("dataString");</code></pre>
-                            <p class="font-medium text-xs">Use viem SDK To Go Onchain</p>
+const randomDeriveKey = await client.deriveKey("keyName", "");</code></pre>
+                            <pre><code class="language-javascript">client = AsyncTappdClient()
+deriveKey = await client.derive_key('key_name', '')</code></pre>
+                            <p class="font-medium text-xs">Generate Remote Attestations in <strong>JS</strong> and <strong>Python</strong> at will</p>
+                            <pre><code class="language-javascript">const getRemoteAttestation = await client.tdxQuote("input");</code></pre>
+                            <pre><code class="language-javascript">tdxQuote = await client.tdx_quote('input')</code></pre>
+                            <p class="font-medium text-xs">Use <a href="https://viem.sh" class="text-blue-500 hover:underline">viem SDK</a> To Go Onchain</p>
                             <pre><code class="language-javascript">const [blockNumber, block] = await Promise.all([client.getBlockNumber(), client.getBlock()]);</code></pre>
                         </div>
                     </section>
@@ -146,7 +150,7 @@ const randomDeriveKey = await client.deriveKey("pathString", "string");</code></
                     </section>
 
                     <section>
-                        <p class="text-gray-600 text-xs">For more Agent Contract Templates, check out our offerings or reach out to us on Telegram to help create a new template for your project in minutes!</p>
+                        <p class="text-gray-600 text-xs">For more Templates, check out our offerings or reach out to us on Telegram to help create a new template for your project in minutes!</p>
                     </section>
 
                     <section class="mt-3">
